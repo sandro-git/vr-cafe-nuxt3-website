@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script  setup>
 import MenuIcon from './MenuIcon.vue';
 
 </script>

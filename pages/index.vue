@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script  setup>
 import TitleWithSubtitle from '@/components/TitleWithSubtitle.vue';
 import WanaDev from '@/components/WanaDev.vue';
 import GameUbisoft from '@/components/GameUbisoft.vue';

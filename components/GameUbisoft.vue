@@ -1,6 +1,9 @@
-<script lang="ts" setup>
+<script setup>
 
-const query = groq`*[_type == game]`;
+const query = groq`*[_type == "game"]{
+  name,
+  "imageUrl": image.asset->url
+}`;
 const { data } = useSanityQuery(query);
 
 </script>
@@ -17,8 +20,9 @@ const { data } = useSanityQuery(query);
         class="flex flex-col items-center py-2 px-3 text-sm font-medium text-center text-white rounded-lg "
       >
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ game.name }}</h5>
+        <!-- {{ game.image.asset._ref }} -->
         <img
-          :src="game.Image"
+          :src="game.imageUrl"
           class="rounded-lg"
           :alt="game.alt"
         >
@@ -26,7 +30,7 @@ const { data } = useSanityQuery(query);
     </div>
     <!-- fin card jeu ubisoft -->
   </div>
-  <p v-else>
+  <p v-else class="text-center">
     Aucun jeux disponibles 🎮
   </p>
 </template>
