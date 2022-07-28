@@ -11,6 +11,10 @@ import AddSynthesys from '~~/components/AddSynthesys.vue';
 import AddPrices from '~~/components/AddPrices.vue';
 import Title from '../components/Title.vue';
 import Services from '../components/Services.vue';
+
+
+
+
 </script>
 
 <template>

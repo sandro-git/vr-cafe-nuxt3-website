@@ -4,5 +4,10 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
     modules: [
         '@nuxtjs/tailwindcss',
+        '@nuxtjs/sanity',
       ],
+      sanity: {
+        projectId: "byaeh17d",
+        apiVersion: '2022-03-25'
+      },
 })
