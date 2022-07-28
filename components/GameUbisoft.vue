@@ -23,14 +23,14 @@ const { data } = useSanityQuery(query);
         <!-- {{ game.image.asset._ref }} -->
         <img
           :src="game.imageUrl"
-          class="rounded-lg"
+          class="rounded-lg h-48"
           :alt="game.alt"
         >
       </a>
     </div>
     <!-- fin card jeu ubisoft -->
   </div>
-  <p v-else class="text-center">
+  <p v-else class="text-white text-center bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 font-bold tracking-wide">
     Aucun jeux disponibles 🎮
   </p>
 </template>
