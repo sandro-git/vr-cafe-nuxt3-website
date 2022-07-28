@@ -180,7 +180,7 @@
                     </span>
                   </div>
                 </div>
-                <div class="bg-white rounded-t-lg px-6 pt-12 pb-10 bg-indigo-600 ">
+                <div class="rounded-t-lg px-6 pt-12 pb-10 bg-indigo-600 ">
                   <div class="flex flex-col items-center ">
                     <h3
                       id="tier-growth"
