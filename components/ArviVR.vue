@@ -1,6 +1,6 @@
 <script setup>
 
-const query = groq`*[_type == "game"]{
+const query = groq`*[_type == "game" && editor._ref == "1e710ae3-4991-4011-93e0-4bb21ff395ee"]{
   name,
   "imageUrl": image.asset->url
 }`;

@@ -1,38 +1,38 @@
-<script  setup>
-import { ref } from 'vue'
+<script setup>
 
-
-const myGame = ref([
-    { title: 'AQUALIA', image: '../img/aqualia_environnement_logo_03.webp', alt:'image jeu'},
-    { title: 'AQUALIA', image: '../img/aqualia_environnement_logo_03.webp', alt:'image jeu'},
-    { title: 'AQUALIA', image: '../img/aqualia_environnement_logo_03.webp', alt:'image jeu'},
-    ])
-
+const query = groq`*[_type == "game" && editor._ref == "7328b00c-6506-45ed-9681-1484264953ea"]{
+  name,
+  "imageUrl": image.asset->url
+}`;
+const { data } = useSanityQuery(query);
 
 </script>
 
 <template>
-  <div class="bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 flex flex-wrap justify-evenly">
+  <div class="bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 flex flex-wrap justify-evenly" v-if="data">
     <!-- card jeu ubisoft -->
-    <div
-      v-for="game in myGame"
-      :key="game"
+    <div v-for="game in data"
+      v-bind:key="game._id"
       class="max-w-sm rounded-lg my-2"
     >
       <a
         href="#"
         class="flex flex-col items-center py-2 px-3 text-sm font-medium text-center text-white rounded-lg "
       >
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ game.title }}</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ game.name }}</h5>
+        <!-- {{ game.image.asset._ref }} -->
         <img
-          :src="game.image"
-          class="rounded-lg"
+          :src="game.imageUrl"
+          class="rounded-lg h-48"
           :alt="game.alt"
         >
       </a>
     </div>
     <!-- fin card jeu ubisoft -->
   </div>
+  <p v-else class="text-white text-center bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 font-bold tracking-wide">
+    Aucun jeux disponibles 🎮
+  </p>
 </template>
 
 <style scoped></style>
