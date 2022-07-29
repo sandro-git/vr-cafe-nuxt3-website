@@ -16,7 +16,7 @@
       >
         <span class="sr-only">Workflow</span>
         <img
-          src="@/public/VRCAFE_LOGO_OK.webp"
+          src="@/VRCAFE_LOGO_OK.webp"
           alt="logo vr café"
           class="h-full"
           sizes="xs:100vw"

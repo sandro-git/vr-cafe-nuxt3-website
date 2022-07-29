@@ -28,10 +28,10 @@ const filtre =  computed(() => data.value.filter(game => game.editor.name === "A
 
 <template>
   <div>
-    <pre>{{data}}</pre>
+    <!-- <pre>{{data}}</pre> -->
     <HeaderApp />
     <img
-      src="@/public/vrcafe.webp"
+      src="@/vrcafe.webp"
       class="text-center"
       alt="vr-headset"
       sizes="xs:100vw lg:100vw xl:100vw"
