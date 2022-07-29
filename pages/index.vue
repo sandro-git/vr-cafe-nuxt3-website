@@ -13,12 +13,26 @@ import Title from '../components/Title.vue';
 import Services from '../components/Services.vue';
 
 
+const query = groq`*[_type == "game"]{
+  name,
+  "imageUrl": image.asset->url,
+  editor->{name}
+}`;
+const { data } = useSanityQuery(query);
+// filtrer le array de data pour avoir que les jeux arvi
 
+const filtre =  data.value.filter(game => game.editor.name == "Arvi")
 
+const arvi = computed(
+  filtre
+)
+// const arvi = reactive(
+//   data..filter(game => game.editor.name == "Arvi")
 </script>
 
 <template>
   <div>
+    <pre>{{data}}</pre>
     <HeaderApp />
     <img
       src="@/public/vrcafe.webp"
@@ -39,7 +53,7 @@ import Services from '../components/Services.vue';
     title="ARVI VR"
     :exclu="true"
   />
-  <ArviVR />
+  <ArviVR :data="arvi" />
   <TitleWithSubtitle
     id="arcade"
     subtitle="WANADEV"
