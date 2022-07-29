@@ -21,13 +21,9 @@ const query = groq`*[_type == "game"]{
 const { data } = useSanityQuery(query);
 // filtrer le array de data pour avoir que les jeux arvi
 
-const filtre =  data.value.filter(game => game.editor.name == "Arvi")
+const filtre =  computed(() => data.value.filter(game => game.editor.name === "Arvi"))
 
-const arvi = computed(
-  filtre
-)
-// const arvi = reactive(
-//   data..filter(game => game.editor.name == "Arvi")
+
 </script>
 
 <template>
@@ -53,7 +49,7 @@ const arvi = computed(
     title="ARVI VR"
     :exclu="true"
   />
-  <ArviVR :data="arvi" />
+  <ArviVR :data="filtre"/>
   <TitleWithSubtitle
     id="arcade"
     subtitle="WANADEV"
