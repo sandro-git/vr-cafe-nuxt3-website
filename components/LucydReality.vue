@@ -1,14 +1,5 @@
 <script  setup>
-import { ref } from 'vue'
 
-
-const myGame = ref([
-    { title: 'LADY SAPIENS', image: '../img/lady_sapiens_1-1.webp', alt:'image jeu'},
-    { title: 'LADY SAPIENS', image: '../img/lady_sapiens_1-1.webp', alt:'image jeu'},
-    { title: 'LADY SAPIENS', image: '../img/lady_sapiens_1-1.webp', alt:'image jeu'},
-    { title: 'LADY SAPIENS', image: '../img/lady_sapiens_1-1.webp', alt:'image jeu'}
-
-])
 </script>
 
 <template>

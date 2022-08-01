@@ -17,7 +17,7 @@ const props = defineProps(['data'])
       >
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ game.name }}</h5>
         <img
-          :src="game.imageUrl"
+          :src="game.imageUrl + '?auto=format'"
           class="rounded-lg h-48"
           :alt="game.alt"
         >

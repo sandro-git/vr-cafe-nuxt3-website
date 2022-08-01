@@ -71,8 +71,8 @@ const wanadev =  computed(
   <AddSynthesys />
   <TitleWithSubtitle
     id="culture"
-    subtitle="LUCID REALITY"
-    title="EXPERIENCE CULTURE"
+    :subtitle="'LUCID REALITY'"
+    :title="'EXPERIENCE CULTURE'"
   />
   <LucydReality />
   <Title title="PARTENAIRES" />

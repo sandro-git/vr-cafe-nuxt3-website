@@ -15,7 +15,7 @@ const props = defineProps(['data'])
       >
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ editor.name }}</h5>
         <img
-          :src="editor.image"
+          :src="editor.image + '?auto=format'"
           class="rounded-lg h-48"
           :alt="editor.alt"
         >

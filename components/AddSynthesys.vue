@@ -1,21 +1,5 @@
 <script  setup>
-import { ref } from 'vue'
-
-
-const myGame = ref([
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    { title: 'ESCAPE THE LOST PYRAMIDE', image: '../img/dark_corridor.jpg', alt:'image jeu'},
-    ])
+  
 </script>
 
 <template>
