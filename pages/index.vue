@@ -18,7 +18,16 @@ const query = groq`*[_type == "game"]{
   "imageUrl": image.asset->url,
   editor->{name}
 }`;
-const { data } = useSanityQuery(query);
+
+const query2 = groq`*[_type == "editors"  ]{
+  name,
+  "image": image.asset->url
+}`;
+
+const sanity = useSanity()
+
+const games = await useAsyncData("games" , ()=>sanity.fetch(query) )
+const editors =await useAsyncData("editors", () => sanity.fetch(query2))
 // filtrer le array de data pour avoir que les jeux arvi
 
 const filtre =  computed(() => data.value.filter(game => game.editor.name === "Arvi"))
@@ -28,7 +37,8 @@ const filtre =  computed(() => data.value.filter(game => game.editor.name === "A
 
 <template>
   <div>
-    <!-- <pre>{{data}}</pre> -->
+    <pre>{{editors}}</pre>
+    <pre>{{games}}</pre>
     <HeaderApp />
     <img
       src="@/vrcafe.webp"
