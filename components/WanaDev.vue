@@ -1,10 +1,7 @@
 <script setup>
 
-const query = groq`*[_type == "game" && editor._ref == "7328b00c-6506-45ed-9681-1484264953ea"]{
-  name,
-  "imageUrl": image.asset->url
-}`;
-const { data } = useSanityQuery(query);
+const props = defineProps(['data'])
+
 
 </script>
 

@@ -1,16 +1,5 @@
 <script  setup>
-import TitleWithSubtitle from '@/components/TitleWithSubtitle.vue';
-import WanaDev from '@/components/WanaDev.vue';
-import GameUbisoft from '@/components/GameUbisoft.vue';
-import ArviVR from '@/components/ArviVR.vue';
-import LucydReality from '@/components/LucydReality.vue';
-import Footer from '@/components/Footer.vue';
-import HeaderApp from '~~/components/HeaderApp.vue';
-import AddPartenaires from '~~/components/AddPartenaires.vue';
-import AddSynthesys from '~~/components/AddSynthesys.vue';
-import AddPrices from '~~/components/AddPrices.vue';
-import Title from '../components/Title.vue';
-import Services from '../components/Services.vue';
+
 
 
 const query = groq`*[_type == "game"]{
@@ -28,17 +17,29 @@ const sanity = useSanity()
 
 const games = await useAsyncData("games" , ()=>sanity.fetch(query) )
 const editors =await useAsyncData("editors", () => sanity.fetch(query2))
-// filtrer le array de data pour avoir que les jeux arvi
 
-const filtre =  computed(() => data.value.filter(game => game.editor.name === "Arvi"))
+
+// filtre pour le array de data pour avoir que les jeux Ubisoft
+const ubisoft =  computed(
+  () => games.data.value.filter(game => game.editor.name === "Ubisoft"),
+)
+// filtre pour le array de data pour avoir que les jeux arvi
+const arvi =  computed(
+  () => games.data.value.filter(game => game.editor.name === "Arvi"),
+)
+// filtre pour le array de data pour avoir que les jeux wanadev
+const wanadev =  computed(
+  () => games.data.value.filter(game => game.editor.name === "Wanadev"),
+)
+
 
 
 </script>
 
 <template>
   <div>
-    <pre>{{editors}}</pre>
-    <pre>{{games}}</pre>
+    <!-- <pre>{{editors}}</pre>
+    <pre>{{games}}</pre> -->
     <HeaderApp />
     <img
       src="@/vrcafe.webp"
@@ -54,18 +55,18 @@ const filtre =  computed(() => data.value.filter(game => game.editor.name === "A
     subtitle="UBISOFT"
     title="EXPERIENCE ESCAPE GAME VR"
   />
-  <GameUbisoft />
+  <GameUbisoft :data="ubisoft"/>
   <Title
     title="ARVI VR"
     :exclu="true"
   />
-  <ArviVR :data="filtre"/>
+  <ArviVR :data="arvi"/>
   <TitleWithSubtitle
     id="arcade"
     subtitle="WANADEV"
     title="EXPERIENCE ARCADE VR"
   />
-  <WanaDev />
+  <WanaDev :data="wanadev"/>
   <Title title="SYNTHESYS" />
   <AddSynthesys />
   <TitleWithSubtitle
@@ -75,7 +76,7 @@ const filtre =  computed(() => data.value.filter(game => game.editor.name === "A
   />
   <LucydReality />
   <Title title="PARTENAIRES" />
-  <AddPartenaires />
+  <AddPartenaires :data="editors.data.value"/>
   <Footer />
 </template>
 

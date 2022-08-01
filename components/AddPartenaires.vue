@@ -1,29 +1,23 @@
 <script setup>
-
-const query = groq`*[_type == "editors"]{
-  name,
-  "imageUrl": image.asset->url
-}`;
-const { data } = useSanityQuery(query);
+const props = defineProps(['data'])
 
 </script>
 
 <template>
   <div class="bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 flex flex-wrap justify-evenly" v-if="data">
     <!-- card jeu ubisoft -->
-    <div v-for="game in data"
-      v-bind:key="game._id"
+    <div v-for="editor in data" :key="editor.name"
       class="max-w-sm rounded-lg my-2"
     >
       <a
         href="#"
         class="flex flex-col items-center py-2 px-3 text-sm font-medium text-center text-white rounded-lg "
       >
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ game.name }}</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{{ editor.name }}</h5>
         <img
-          :src="game.imageUrl"
+          :src="editor.image"
           class="rounded-lg h-48"
-          :alt="game.alt"
+          :alt="editor.alt"
         >
       </a>
     </div>
