@@ -4,8 +4,10 @@
 
 const query = groq`*[_type == "game"]{
   name,
-  "imageUrl": image.asset->url,
-  editor->{name}
+  text,
+  "imageUrl": image{asset},
+  editor->{name},
+  slug{current}
 }`;
 
 const query2 = groq`*[_type == "editors"  ]{
@@ -38,8 +40,8 @@ const wanadev =  computed(
 
 <template>
   <div>
-    <!-- <pre>{{editors}}</pre>
-    <pre>{{games}}</pre> -->
+    <!-- <pre>{{editors}}</pre> -->
+    <!-- <pre>{{games.data.value[0]}}</pre> -->
     <HeaderApp />
     <img
       src="@/vrcafe.webp"
