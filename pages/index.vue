@@ -2,6 +2,7 @@
 
 
 
+
 const query = groq`*[_type == "game"]{
   name,
   text,
@@ -35,6 +36,11 @@ const wanadev =  computed(
 )
 
 
+// definePageMeta({
+//     title:"Page d'accueil"
+// })
+// const route = useRoute()
+// console.log(route.meta.title)
 
 </script>
 
