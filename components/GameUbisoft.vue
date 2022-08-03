@@ -11,8 +11,6 @@ defineProps(['data'])
     <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mt-3  h-96 overflow-hidden" v-for="game in data"
       :key="game._id">
        {{game.slug.current}}
-      <!-- <pre>{{game.imageUrl._ref}}</pre> -->
-          <!-- <img class="rounded-t-lg" :src="game.imageUrl + '?auto=format'" alt="" height="250" width="382"> -->
           <img
             :src="$urlFor(game.imageUrl).size(426,250).url()"
             :alt="game.name"

@@ -1,8 +1,5 @@
 <script  setup>
 
-
-
-
 const query = groq`*[_type == "game"]{
   name,
   text,
@@ -35,19 +32,11 @@ const wanadev =  computed(
   () => games.data.value.filter(game => game.editor.name === "Wanadev"),
 )
 
-
-// definePageMeta({
-//     title:"Page d'accueil"
-// })
-// const route = useRoute()
-// console.log(route.meta.title)
-
 </script>
 
 <template>
+<div>
   <div>
-    <!-- <pre>{{editors}}</pre> -->
-    <!-- <pre>{{games.data.value[0]}}</pre> -->
     <HeaderApp />
     <img
       src="@/vrcafe.webp"
@@ -86,6 +75,6 @@ const wanadev =  computed(
   <Title title="PARTENAIRES" />
   <AddPartenaires :data="editors.data.value"/>
   <Footer />
+  </div>
 </template>
 
-<style scoped></style>

@@ -4,6 +4,8 @@
 </script>
 
 <template>
-    {{$route.params.slug}}
-    {{ ubisoft }}
+    <div>
+        {{$route.params.slug}}
+        <nuxt-link to="/" >retour</nuxt-link>
+    </div>
 </template>
